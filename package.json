@@ -1,0 +1,20 @@
+{
+  
+  "name": "puppeteer-automation-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "npx nodemon src/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1",
+    "puppeteer": "^20.8.2"
+  },
+  "keywords": [],
+  "author": "suryabhan singh",
+  "license": "ISC",
+  "description": "basic browser automation using node and puppeteer"
+}
