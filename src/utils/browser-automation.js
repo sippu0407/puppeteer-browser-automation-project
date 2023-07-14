@@ -23,32 +23,38 @@ class BrowserAtomation{
             await input.click({ clickCount: 2 })
             await input.type(value);
             }
-  
-  async selectToken(tokenClass,token,text){
-         
-           
-           const input=await this.page.$(tokenClass)
-           await this.page.waitForTimeout(4000)
 
+
+  
+  async selectToken(tokenClassText,token,text){
+         
+
+          const input= await this.page.waitForSelector(`div ::-p-text(${tokenClassText})`);
            await input.click({ clickCount: 2 })
 
           await input.type(token);
 
-        await this.page.waitForTimeout(4000)
+ 
          
-       const element = await this.page.waitForSelector(`div ::-p-text(${text})`);
+         const element = await this.page.waitForSelector(`div ::-p-text(${text})`);
 
-       console.log(element);
-
-        await element.click();
+        await element.click();    
         
+             await this.page.waitForTimeout(4000)
 
        
   }
 
 
-  async gotoRoute(){
+  async gotoRoute(routeClass){
+
+
     
+   await this.page.evaluate(
+    () => document.querySelectorAll(`.sc-18d0abec-0.knYyMy.RouteWrapper`)[1].click()
+  )
+    
+
   }
  
 

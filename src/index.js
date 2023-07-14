@@ -8,9 +8,20 @@ const BrowserAtomation=require('./utils/browser-automation');
 const className=".chakra-input.css-lv0ed5";
 const value="12";
 
-const wbtcClassName=".chakra-text.css-sys4p8";
-const wbtcvalue="WBTC";
-const wbtcText="Wrapped BTC (WBTC)"
+const buttonToClick=".chakra-text.css-sys4p8";
+
+const wbtcButtonText="ETH"
+const wbtcValue="WBTC";
+const wbtcText="Wrapped BTC (WBTC)";
+
+
+const usdcButtonText='Select Token';
+const usdcValue="USDC";
+const usdcText="USD Coin (USDC)";
+
+
+const swapRouteClass=".sc-55ee4011-2.fcGAPg";
+
 
 const setupServer=async ()=>{
 
@@ -24,7 +35,9 @@ const setupServer=async ()=>{
     await browserAutomation.launchBrowser();
     await browserAutomation.visitSite(url);
     await browserAutomation.fillField(className,value);
-    await browserAutomation.selectToken(wbtcClassName,wbtcvalue,wbtcText);
+    await browserAutomation.selectToken(wbtcButtonText,wbtcValue,wbtcText);
+    await browserAutomation.selectToken(usdcButtonText,usdcValue,usdcText);
+    await browserAutomation.gotoRoute(swapRouteClass);
      
   });
 
